@@ -411,6 +411,14 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
+<!-- 교과목 상세 모달 -->
+<div class="modal-ov" id="course-modal-ov" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="modal" style="max-width:560px;">
+    <div id="course-modal-body"></div>
+    <button class="modal-close" onclick="document.getElementById('course-modal-ov').classList.remove('show')">닫기</button>
+  </div>
+</div>
+
 <!-- 비교 배너 -->
 <div class="cmp-banner" id="cmp-banner">
   <div id="cmp-tags"></div>
@@ -527,8 +535,29 @@ function showCourses(kw,deptData){
   panel.innerHTML=`
     <div class="det-hdr"><div class="det-kw">${kw}</div><div class="det-sub">${courses.length}개 교과목 매핑</div></div>
     ${courses.length
-      ?courses.map(c=>`<div class="course-card"><div class="c-name">📘 ${c.n}</div><div class="c-desc">${c.d}${c.d.length>=80?'…':''}</div></div>`).join('')
+      ?courses.map(c=>`<div class="course-card" style="cursor:pointer;" onclick="openCourseModal(this)">
+        <div class="c-name">📘 ${c.n}</div>
+        <div class="c-desc">${c.d}${c.d.length>=80?'…':''}</div>
+        <div style="margin-top:8px;font-size:10px;color:var(--accent);font-family:'DM Mono',monospace;">자세히 보기 →</div>
+        <span style="display:none" class="c-full-name">${c.n}</span>
+        <span style="display:none" class="c-full-desc">${c.d}</span>
+       </div>`).join('')
       :'<div class="no-courses">저장된 교과목 정보가 없습니다</div>'}`;
+}
+
+function openCourseModal(card){
+  const name = card.querySelector('.c-full-name').textContent;
+  const desc = card.querySelector('.c-full-desc').textContent;
+  document.getElementById('course-modal-body').innerHTML=`
+    <div style="margin-bottom:18px;">
+      <div style="font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;margin-bottom:8px;letter-spacing:1px;">교과목</div>
+      <div style="font-size:18px;font-weight:800;color:var(--text);line-height:1.4;">📘 ${name}</div>
+    </div>
+    <div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:20px;">
+      <div style="font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;margin-bottom:10px;letter-spacing:1px;">교과목 해설</div>
+      <div style="font-size:14px;color:var(--text);line-height:1.9;">${desc}</div>
+    </div>`;
+  document.getElementById('course-modal-ov').classList.add('show');
 }
 
 function renderRank(d){
