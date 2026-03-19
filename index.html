@@ -468,7 +468,10 @@ function selectDept(n){
   curDept=n;const d=DEPT_KEYWORDS[n];if(!d)return;
   document.getElementById('info-bar').style.display='flex';
   document.getElementById('d-title').textContent=n;
-  document.getElementById('d-meta').textContent=`핵심 키워드 ${Object.keys(d.t).length}개 · 교과목 ${d.cnt}개`;
+  const schoolStr = d.s && d.s.length ? d.s.join(' · ') : '';
+  document.getElementById('d-meta').innerHTML=
+    `핵심 키워드 ${Object.keys(d.t).length}개 · 교과목 ${d.cnt}개`
+    + (schoolStr ? `&nbsp;&nbsp;<span style="color:var(--accent);font-weight:600;">🏫 ${schoolStr}</span>` : '');
   switchTab('cloud',d);
   const q=document.getElementById('s-input').value.trim();
   renderList(q?DEPT_LIST_DATA.filter(n=>n.includes(q)):DEPT_LIST_DATA);
