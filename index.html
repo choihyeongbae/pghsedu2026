@@ -532,30 +532,30 @@ function drawWords(words,W,H,deptData){
 function showCourses(kw,deptData){
   const panel=document.getElementById('det-panel');if(!panel)return;
   const courses=deptData.c?.[kw]||[];
+  // 교과목 데이터를 전역에 임시 저장 (모달에서 참조)
+  window._currentCourses = courses;
   panel.innerHTML=`
     <div class="det-hdr"><div class="det-kw">${kw}</div><div class="det-sub">${courses.length}개 교과목 매핑</div></div>
     ${courses.length
-      ?courses.map(c=>`<div class="course-card" style="cursor:pointer;" onclick="openCourseModal(this)">
+      ?courses.map((c,i)=>`<div class="course-card" style="cursor:pointer;" onclick="openCourseModal(${i})">
         <div class="c-name">📘 ${c.n}</div>
-        <div class="c-desc">${c.d}${c.d.length>=80?'…':''}</div>
+        <div class="c-desc">${c.p||c.d}${(c.p||c.d).length>=58?'…':''}</div>
         <div style="margin-top:8px;font-size:10px;color:var(--accent);font-family:'DM Mono',monospace;">자세히 보기 →</div>
-        <span style="display:none" class="c-full-name">${c.n}</span>
-        <span style="display:none" class="c-full-desc">${c.d}</span>
        </div>`).join('')
       :'<div class="no-courses">저장된 교과목 정보가 없습니다</div>'}`;
 }
 
-function openCourseModal(card){
-  const name = card.querySelector('.c-full-name').textContent;
-  const desc = card.querySelector('.c-full-desc').textContent;
+function openCourseModal(idx){
+  const c = window._currentCourses[idx];
+  if(!c) return;
   document.getElementById('course-modal-body').innerHTML=`
-    <div style="margin-bottom:18px;">
-      <div style="font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;margin-bottom:8px;letter-spacing:1px;">교과목</div>
-      <div style="font-size:18px;font-weight:800;color:var(--text);line-height:1.4;">📘 ${name}</div>
+    <div style="margin-bottom:20px;">
+      <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">교과목</div>
+      <div style="font-size:18px;font-weight:800;color:var(--text);line-height:1.5;">📘 ${c.n}</div>
     </div>
-    <div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:20px;">
-      <div style="font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;margin-bottom:10px;letter-spacing:1px;">교과목 해설</div>
-      <div style="font-size:14px;color:var(--text);line-height:1.9;">${desc}</div>
+    <div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:14px;padding:22px;">
+      <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">교과목 해설</div>
+      <div style="font-size:14px;color:var(--text);line-height:2.0;word-break:keep-all;">${c.d}</div>
     </div>`;
   document.getElementById('course-modal-ov').classList.add('show');
 }
