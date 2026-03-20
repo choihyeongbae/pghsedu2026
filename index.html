@@ -290,7 +290,8 @@ header h1 span{color:var(--muted);font-weight:400;}
 
 .modal-ov{position:fixed;inset:0;background:rgba(30,40,80,.5);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
 .modal-ov.show{display:flex;}
-.modal{background:#fff;border:1.5px solid var(--border);border-radius:20px;width:90vw;max-width:860px;max-height:85vh;overflow-y:auto;padding:32px;box-shadow:0 24px 64px rgba(0,0,0,.15);}
+.modal{background:#fff;border:1.5px solid var(--border);border-radius:20px;width:90vw;max-width:860px;max-height:90vh;overflow-y:auto;padding:28px;box-shadow:0 24px 64px rgba(0,0,0,.15);}
+#course-modal-ov .modal{max-width:560px;display:flex;flex-direction:column;}
 .modal::-webkit-scrollbar{width:3px;}
 .modal::-webkit-scrollbar-thumb{background:var(--border2);}
 .modal-title{font-size:18px;font-weight:800;margin-bottom:22px;color:var(--text);}
@@ -413,9 +414,9 @@ header h1 span{color:var(--muted);font-weight:400;}
 
 <!-- 교과목 상세 모달 -->
 <div class="modal-ov" id="course-modal-ov" onclick="if(event.target===this)this.classList.remove('show')">
-  <div class="modal" style="max-width:560px;">
-    <div id="course-modal-body"></div>
-    <button class="modal-close" onclick="document.getElementById('course-modal-ov').classList.remove('show')">닫기</button>
+  <div class="modal" style="max-width:560px;max-height:80vh;display:flex;flex-direction:column;gap:0;">
+    <div id="course-modal-body" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0;"></div>
+    <button class="modal-close" style="flex-shrink:0;margin-top:16px;" onclick="document.getElementById('course-modal-ov').classList.remove('show')">닫기</button>
   </div>
 </div>
 
@@ -548,14 +549,16 @@ function showCourses(kw,deptData){
 function openCourseModal(idx){
   const c = window._currentCourses[idx];
   if(!c) return;
+  // 줄바꿈 문자를 <br>로 변환
+  const fullDesc = c.d.replace(/\n/g,'<br>').replace(/\\n/g,'<br>');
   document.getElementById('course-modal-body').innerHTML=`
-    <div style="margin-bottom:20px;">
+    <div style="margin-bottom:18px;flex-shrink:0;">
       <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">교과목</div>
-      <div style="font-size:18px;font-weight:800;color:var(--text);line-height:1.5;">📘 ${c.n}</div>
+      <div style="font-size:17px;font-weight:800;color:var(--text);line-height:1.5;word-break:keep-all;">📘 ${c.n}</div>
     </div>
-    <div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:14px;padding:22px;">
+    <div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:14px;padding:20px;overflow-y:auto;flex:1;">
       <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">교과목 해설</div>
-      <div style="font-size:14px;color:var(--text);line-height:2.0;word-break:keep-all;">${c.d}</div>
+      <div style="font-size:14px;color:var(--text);line-height:2.0;word-break:keep-all;white-space:pre-wrap;">${fullDesc}</div>
     </div>`;
   document.getElementById('course-modal-ov').classList.add('show');
 }
