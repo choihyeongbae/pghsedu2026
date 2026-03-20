@@ -447,9 +447,30 @@ function init(){
   setupKwInput();
 }
 
-function goLanding(){show('screen-landing');hide('screen-search');hide('screen-rec');document.getElementById('back-btn').style.display='none';}
-function goSearch(){hide('screen-landing');show('screen-search');hide('screen-rec');document.getElementById('back-btn').style.display='block';}
-function goRec(){hide('screen-landing');hide('screen-search');show('screen-rec');document.getElementById('back-btn').style.display='block';setTimeout(()=>document.getElementById('kw-input').focus(),100);}
+// 각 화면의 display 타입 명시
+const DISPLAY_TYPE = {
+  'screen-landing': 'flex',
+  'screen-search': 'block',
+  'screen-rec': 'block'
+};
+function showScreen(id){
+  ['screen-landing','screen-search','screen-rec'].forEach(s=>{
+    document.getElementById(s).style.display = (s===id ? DISPLAY_TYPE[s] : 'none');
+  });
+}
+function goLanding(){
+  showScreen('screen-landing');
+  document.getElementById('back-btn').style.display='none';
+}
+function goSearch(){
+  showScreen('screen-search');
+  document.getElementById('back-btn').style.display='block';
+}
+function goRec(){
+  showScreen('screen-rec');
+  document.getElementById('back-btn').style.display='block';
+  setTimeout(()=>document.getElementById('kw-input').focus(),100);
+}
 function show(id){document.getElementById(id).style.display='block';}
 function hide(id){document.getElementById(id).style.display='none';}
 
