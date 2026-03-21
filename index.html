@@ -30,6 +30,8 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+/* ── 헤더 ── */
 header{
   position:relative;z-index:10;padding:14px 36px;
   border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;
@@ -49,6 +51,8 @@ header h1 span{color:var(--muted);font-weight:400;}
 }
 .back-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-light);}
 .hdr-cnt{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);}
+
+/* ══ 랜딩 ══ */
 #screen-landing{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:calc(100vh - 57px);padding:40px 20px;
@@ -82,7 +86,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 .card-tag{display:inline-block;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;}
 .card-search .card-tag{background:var(--accent-light);color:var(--accent);}
 .card-rec .card-tag{background:var(--accent2-light);color:var(--accent2);}
-.landing-footer{margin-top:36px;font-size:11px;color:var(--dim);text-align:center;font-family:'DM Mono',monospace;}
 .notice-box{
   margin-top:28px;width:100%;max-width:720px;
   background:rgba(59,115,245,.05);border:1px solid rgba(59,115,245,.18);
@@ -107,6 +110,8 @@ header h1 span{color:var(--muted);font-weight:400;}
   font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;
   border-top:1px solid rgba(59,115,245,.15);padding-top:10px;margin-top:2px;
 }
+
+/* ══ 검색 화면 ══ */
 #screen-search{display:none;}
 .layout{display:grid;grid-template-columns:290px 1fr;height:calc(100vh - 57px);}
 .sidebar{
@@ -140,6 +145,7 @@ header h1 span{color:var(--muted);font-weight:400;}
 .dept-item.cmp-sel{background:var(--accent2-light);color:var(--accent2);border-left-color:var(--accent2);}
 .d-cnt{margin-left:auto;font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
 .no-res{padding:24px 18px;text-align:center;color:var(--dim);font-size:13px;}
+
 .right{display:flex;flex-direction:column;overflow:hidden;background:var(--bg);}
 .info-bar{
   padding:12px 28px;border-bottom:1px solid var(--border);
@@ -154,6 +160,7 @@ header h1 span{color:var(--muted);font-weight:400;}
   font-family:'Noto Sans KR',sans-serif;font-size:12px;cursor:pointer;border-radius:8px;transition:all .15s;white-space:nowrap;
 }
 .tab-btn.active{background:var(--accent);color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(59,115,245,.3);}
+
 .main-view{flex:1;display:grid;grid-template-columns:1fr 360px;overflow:hidden;}
 .cloud-wrap{
   display:flex;align-items:center;justify-content:center;padding:16px;position:relative;overflow:hidden;
@@ -165,6 +172,7 @@ header h1 span{color:var(--muted);font-weight:400;}
   font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;pointer-events:none;white-space:nowrap;
   background:rgba(255,255,255,.85);padding:4px 12px;border-radius:20px;border:1px solid var(--border);
 }
+
 .detail-panel{border-left:1px solid var(--border);background:#fff;overflow-y:auto;display:flex;flex-direction:column;}
 .detail-panel::-webkit-scrollbar{width:3px;}
 .detail-panel::-webkit-scrollbar-thumb{background:var(--border2);}
@@ -174,6 +182,17 @@ header h1 span{color:var(--muted);font-weight:400;}
 }
 .det-kw{font-size:20px;font-weight:800;color:var(--accent);margin-bottom:3px;}
 .det-sub{font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;}
+.det-actions{padding:12px 16px;border-bottom:1px solid var(--border);background:#fff;display:flex;gap:8px;align-items:center;}
+.det-info-chip{
+  background:var(--surface2);border:1px solid var(--border);border-radius:20px;
+  padding:5px 10px;font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;
+}
+.view-all-btn{
+  margin-left:auto;padding:8px 14px;background:var(--accent);color:#fff;border:none;border-radius:10px;
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:700;cursor:pointer;
+  box-shadow:0 3px 10px rgba(59,115,245,.25);
+}
+.view-all-btn:hover{filter:brightness(.98);}
 .course-card{
   margin:10px 12px;background:var(--surface2);border:1.5px solid var(--border);
   border-radius:12px;padding:14px;transition:all .2s;animation:fadeUp .25s ease;
@@ -183,6 +202,7 @@ header h1 span{color:var(--muted);font-weight:400;}
 .c-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4;}
 .c-desc{font-size:11px;color:var(--muted);line-height:1.7;}
 .no-courses{padding:28px 18px;text-align:center;color:var(--dim);font-size:12px;}
+
 .rank-view{flex:1;overflow-y:auto;padding:20px 32px;background:var(--bg);}
 .rank-view::-webkit-scrollbar{width:3px;}
 .rank-view::-webkit-scrollbar-thumb{background:var(--border2);}
@@ -200,6 +220,8 @@ header h1 span{color:var(--muted);font-weight:400;}
   grid-column:1/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
 }
 .sl-icon{font-size:48px;opacity:.25;}
+
+/* ══ 추천 화면 ══ */
 #screen-rec{
   display:none;min-height:calc(100vh - 57px);padding:40px 48px;
   background:linear-gradient(160deg,#f0f4ff 0%,#fdf0f8 60%,#f4f6fb 100%);
@@ -274,6 +296,8 @@ header h1 span{color:var(--muted);font-weight:400;}
   grid-column:1/-1;text-align:center;padding:48px;color:var(--muted);font-size:14px;
   background:#fff;border-radius:16px;border:1.5px dashed var(--border);
 }
+
+/* ══ 비교 ══ */
 .cmp-banner{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
   background:#fff;border:2px solid var(--accent);border-radius:14px;padding:10px 18px;
@@ -289,10 +313,11 @@ header h1 span{color:var(--muted);font-weight:400;}
   box-shadow:0 3px 10px rgba(59,115,245,.3);
 }
 .cmp-x{color:var(--dim);font-size:15px;cursor:pointer;background:none;border:none;}
+
+/* ══ 모달 ══ */
 .modal-ov{position:fixed;inset:0;background:rgba(30,40,80,.5);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
 .modal-ov.show{display:flex;}
 .modal{background:#fff;border:1.5px solid var(--border);border-radius:20px;width:90vw;max-width:860px;max-height:90vh;overflow-y:auto;padding:28px;box-shadow:0 24px 64px rgba(0,0,0,.15);}
-#course-modal-ov .modal{max-width:560px;display:flex;flex-direction:column;}
 .modal::-webkit-scrollbar{width:3px;}
 .modal::-webkit-scrollbar-thumb{background:var(--border2);}
 .modal-title{font-size:18px;font-weight:800;margin-bottom:22px;color:var(--text);}
@@ -307,6 +332,49 @@ header h1 span{color:var(--muted);font-weight:400;}
 .big-u{font-size:13px;color:var(--dim);}
 .modal-close{margin-top:20px;width:100%;padding:11px;background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;font-size:13px;cursor:pointer;transition:all .15s;}
 .modal-close:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light);}
+
+/* 교과목 단건 상세 모달 */
+#course-modal-ov .modal{max-width:560px;display:flex;flex-direction:column;gap:0;}
+/* 전체 목록 모달 */
+#all-courses-modal-ov .modal{
+  max-width:900px;padding:24px;display:flex;flex-direction:column;gap:0;
+}
+.all-modal-top{
+  display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:14px;
+}
+.all-modal-title-box{display:flex;flex-direction:column;gap:6px;}
+.all-modal-title{font-size:20px;font-weight:900;color:var(--text);}
+.all-modal-sub{font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;}
+.all-search-wrap{
+  position:relative;margin:12px 0 14px 0;
+}
+.all-search-wrap input{
+  width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;
+  padding:12px 14px 12px 38px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;outline:none;
+}
+.all-search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,115,245,.1);background:#fff;}
+.all-search-icon{
+  position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--dim);
+}
+.all-courses-list{
+  overflow-y:auto;flex:1;min-height:240px;max-height:56vh;padding-right:4px;
+}
+.all-courses-list::-webkit-scrollbar{width:3px;}
+.all-courses-list::-webkit-scrollbar-thumb{background:var(--border2);}
+.all-course-card{
+  border:1.5px solid var(--border);background:var(--surface2);border-radius:14px;padding:14px;margin-bottom:10px;
+  transition:all .18s;cursor:pointer;
+}
+.all-course-card:hover{border-color:var(--accent);background:var(--accent-light);}
+.all-course-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.5;}
+.all-course-desc{font-size:12px;color:var(--muted);line-height:1.8;}
+.all-empty{
+  padding:40px 12px;text-align:center;color:var(--dim);font-size:13px;
+}
+.highlight{
+  background:#fff1a8;color:#1a1f36;border-radius:4px;padding:0 2px;
+}
+
 @media(max-width:700px){
   .choice-wrap{grid-template-columns:1fr;}
   .landing-title{font-size:30px;}
@@ -330,6 +398,7 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </header>
 
+<!-- ══ 랜딩 ══ -->
 <div id="screen-landing">
   <p class="landing-eyebrow">대학알리미 교육과정 데이터 기반</p>
   <h2 class="landing-title">내 미래 학과,<br><span class="hl">데이터로 탐색하기</span></h2>
@@ -360,6 +429,7 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
+<!-- ══ 검색 화면 ══ -->
 <div id="screen-search">
   <div class="layout">
     <aside class="sidebar">
@@ -396,6 +466,7 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
+<!-- ══ 추천 화면 ══ -->
 <div id="screen-rec">
   <div class="rec-header">
     <div class="rec-title">✨ 관심 키워드로 학과 추천받기</div>
@@ -418,19 +489,40 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
+<!-- 교과목 단건 상세 모달 -->
 <div class="modal-ov" id="course-modal-ov" onclick="if(event.target===this)this.classList.remove('show')">
   <div class="modal" style="max-width:560px;max-height:80vh;display:flex;flex-direction:column;gap:0;">
     <div id="course-modal-body" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0;"></div>
-    <button class="modal-close" style="flex-shrink:0;margin-top:16px;" onclick="document.getElementById('course-modal-ov').classList.remove('show')">닫기</button>
+    <button class="modal-close" style="flex-shrink:0;margin-top:16px;" onclick="closeCourseModal()">닫기</button>
   </div>
 </div>
 
+<!-- 전체 교과목 목록 모달 -->
+<div class="modal-ov" id="all-courses-modal-ov" onclick="if(event.target===this)closeAllCoursesModal()">
+  <div class="modal">
+    <div class="all-modal-top">
+      <div class="all-modal-title-box">
+        <div class="all-modal-title" id="all-modal-title">전체 교과목</div>
+        <div class="all-modal-sub" id="all-modal-sub">0개 교과목</div>
+      </div>
+    </div>
+    <div class="all-search-wrap">
+      <span class="all-search-icon">🔍</span>
+      <input type="text" id="all-courses-search" placeholder="교과목명 또는 해설 검색" autocomplete="off" />
+    </div>
+    <div class="all-courses-list" id="all-courses-list"></div>
+    <button class="modal-close" onclick="closeAllCoursesModal()">닫기</button>
+  </div>
+</div>
+
+<!-- 비교 배너 -->
 <div class="cmp-banner" id="cmp-banner">
   <div id="cmp-tags"></div>
   <button class="cmp-go" onclick="openCompare()">비교 분석 →</button>
   <button class="cmp-x" onclick="clearCompare()">✕</button>
 </div>
 
+<!-- 비교 모달 -->
 <div class="modal-ov" id="modal-ov" onclick="if(event.target===this)this.classList.remove('show')">
   <div class="modal">
     <div class="modal-title">⚖️ 학과 비교 분석</div>
@@ -443,6 +535,7 @@ header h1 span{color:var(--muted);font-weight:400;}
 <script>
 const COLORS=['#3b73f5','#e8468a','#17a865','#e07d10','#7c3bf5','#0891b2','#b45309','#6366f1','#059669','#dc2626'];
 let curDept=null,curTab='cloud',cmpList=[],keywords=[];
+let allCoursesState={ keyword:'', deptName:'', courses:[] };
 
 const DISPLAY_TYPE = {
   'screen-landing': 'flex',
@@ -454,6 +547,7 @@ function init(){
   document.getElementById('hdr-cnt').textContent=`${DEPT_LIST_DATA.length}개 학과`;
   renderList(DEPT_LIST_DATA);
   setupKwInput();
+  setupAllCoursesSearch();
 }
 
 function showScreen(id){
@@ -474,6 +568,37 @@ function goRec(){
   document.getElementById('back-btn').style.display='block';
   setTimeout(()=>document.getElementById('kw-input').focus(),100);
 }
+
+/* 유틸 */
+function normalizeKeyword(str){
+  return String(str||'').trim().toLowerCase().replace(/\s+/g,'');
+}
+function escapeJsString(str){
+  return String(str).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+}
+function escapeHtml(str){
+  return String(str||'')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+function truncateText(text,maxLen){
+  const t=String(text||'');
+  return t.length>maxLen ? t.slice(0,maxLen)+'…' : t;
+}
+function highlightText(text, query){
+  const safe=escapeHtml(String(text||''));
+  if(!query) return safe;
+  const q=escapeHtml(query.trim());
+  if(!q) return safe;
+  const escapedQuery=query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const re=new RegExp(`(${escapedQuery})`, 'gi');
+  return safe.replace(re, '<span class="highlight">$1</span>');
+}
+
+/* 리스트 */
 function renderList(list){
   const el=document.getElementById('dept-list');
   if(!list.length){
@@ -505,12 +630,14 @@ function selectDept(n){
   document.getElementById('d-title').textContent=n;
   const schoolStr=d.s&&d.s.length?d.s.join(' · '):'';
   document.getElementById('d-meta').innerHTML=
-    `핵심 키워드 ${Object.keys(d.t).length}개 · 교과목 ${d.cnt}개`
+    `핵심 키워드 ${Object.keys(d.t||{}).length}개 · 교과목 ${d.cnt}개`
     +(schoolStr?`&nbsp;&nbsp;<span style="color:var(--accent);font-weight:600;">🏫 ${schoolStr}</span>`:'');
   switchTab('cloud',d);
   const q=document.getElementById('s-input').value.trim();
   renderList(q?DEPT_LIST_DATA.filter(n=>n.includes(q)):DEPT_LIST_DATA);
 }
+
+/* 탭 */
 function switchTab(tab,dData){
   curTab=tab;
   const d=dData||(curDept?DEPT_KEYWORDS[curDept]:null);
@@ -529,10 +656,19 @@ function switchTab(tab,dData){
     renderRank(d);
   }
 }
+
+/* 워드클라우드 */
 function buildCloud(d){
   document.getElementById('main-view').innerHTML=`
-    <div class="cloud-wrap" id="cloud-wrap"><svg id="wc-svg"></svg><div class="cloud-hint">🖱 단어 클릭 → 관련 교과목</div></div>
-    <div class="detail-panel" id="det-panel"><div style="padding:32px 20px;text-align:center;color:var(--dim);font-size:13px;line-height:2;">← 워드클라우드에서<br>단어를 클릭해 보세요</div></div>`;
+    <div class="cloud-wrap" id="cloud-wrap">
+      <svg id="wc-svg"></svg>
+      <div class="cloud-hint">🖱 단어 클릭 → 관련 교과목</div>
+    </div>
+    <div class="detail-panel" id="det-panel">
+      <div style="padding:32px 20px;text-align:center;color:var(--dim);font-size:13px;line-height:2;">
+        ← 워드클라우드에서<br>단어를 클릭해 보세요
+      </div>
+    </div>`;
   renderCloud(d);
 }
 function renderCloud(d){
@@ -540,13 +676,15 @@ function renderCloud(d){
   if(!wrap)return;
   const W=wrap.clientWidth-28,H=wrap.clientHeight-28;
   if(W<80||H<80)return;
-  const entries=Object.entries(d.t);
+  const entries=Object.entries(d.t||{});
   const maxV=entries[0]?.[1]||1;
   const words=entries.map(([text,score])=>({text,score,size:12+(score/maxV)*52}));
   d3.select('#wc-svg').selectAll('*').remove();
   d3.layout.cloud().size([W,H]).words(words).padding(6)
-    .rotate(()=>Math.random()>.75?90:0).fontSize(w=>w.size)
-    .on('end',drawWordsEnded=>drawWords(drawWordsEnded,W,H,d)).start();
+    .rotate(()=>Math.random()>.75?90:0)
+    .fontSize(w=>w.size)
+    .on('end',drawWordsEnded=>drawWords(drawWordsEnded,W,H,d))
+    .start();
 }
 function drawWords(words,W,H,deptData){
   const svg=d3.select('#wc-svg').attr('width',W).attr('height',H);
@@ -566,29 +704,59 @@ function drawWords(words,W,H,deptData){
     .on('click',(e,d)=>showCourses(d.text,deptData))
     .transition().duration(500).delay((d,i)=>i*25).style('opacity',1);
 }
+
+/* 상세 패널: 상위 5개 미리보기 */
 function showCourses(kw,deptData){
   const panel=document.getElementById('det-panel');
   if(!panel)return;
-  const courses=deptData.c?.[kw]||[];
-  window._currentCourses=courses;
+
+  const courses=deptData.c?.[kw] || [];
+  const previewCourses=courses.slice(0,5);
+
+  window._currentCourses = courses;
+  window._currentKeyword = kw;
+  window._currentDeptName = curDept;
+
   panel.innerHTML=`
-    <div class="det-hdr"><div class="det-kw">${kw}</div><div class="det-sub">${courses.length}개 교과목 매핑</div></div>
-    ${courses.length
-      ?courses.map((c,i)=>`<div class="course-card" style="cursor:pointer;" onclick="openCourseModal(${i})">
-        <div class="c-name">📘 ${c.n}</div>
-        <div class="c-desc">${truncateText(c.p||c.d,58)}</div>
-        <div style="margin-top:8px;font-size:10px;color:var(--accent);font-family:'DM Mono',monospace;">자세히 보기 →</div>
-      </div>`).join('')
-      :'<div class="no-courses">저장된 교과목 정보가 없습니다</div>'}`;
+    <div class="det-hdr">
+      <div class="det-kw">${escapeHtml(kw)}</div>
+      <div class="det-sub">${courses.length}개 교과목 매핑</div>
+    </div>
+    <div class="det-actions">
+      <span class="det-info-chip">미리보기 5개</span>
+      <span class="det-info-chip">전체 ${courses.length}개</span>
+      <button class="view-all-btn" onclick="openAllCoursesModal()">전체 교과목 보기 →</button>
+    </div>
+    ${
+      previewCourses.length
+        ? previewCourses.map((c,i)=>`
+          <div class="course-card" style="cursor:pointer;" onclick="openCourseModal(${i})">
+            <div class="c-name">📘 ${escapeHtml(c.n)}</div>
+            <div class="c-desc">${escapeHtml(truncateText(c.p||c.d,58))}</div>
+            <div style="margin-top:8px;font-size:10px;color:var(--accent);font-family:'DM Mono',monospace;">자세히 보기 →</div>
+          </div>
+        `).join('')
+        : '<div class="no-courses">저장된 교과목 정보가 없습니다</div>'
+    }
+    ${
+      courses.length > 5
+        ? `<div style="padding:8px 16px 16px;color:var(--dim);font-size:11px;line-height:1.7;">
+             현재는 대표 교과목 5개만 미리 보여주고 있음. 전체 목록은 상단 버튼에서 확인 가능함.
+           </div>`
+        : ''
+    }
+  `;
 }
+
+/* 단건 교과목 상세 */
 function openCourseModal(idx){
-  const c=window._currentCourses[idx];
+  const c=window._currentCourses?.[idx];
   if(!c)return;
-  const fullDesc=String(c.d||'').replace(/\n/g,'<br>').replace(/\\n/g,'<br>');
+  const fullDesc=escapeHtml(String(c.d||'')).replace(/\n/g,'<br>').replace(/\\n/g,'<br>');
   document.getElementById('course-modal-body').innerHTML=`
     <div style="margin-bottom:18px;flex-shrink:0;">
       <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">교과목</div>
-      <div style="font-size:17px;font-weight:800;color:var(--text);line-height:1.5;word-break:keep-all;">📘 ${c.n}</div>
+      <div style="font-size:17px;font-weight:800;color:var(--text);line-height:1.5;word-break:keep-all;">📘 ${escapeHtml(c.n)}</div>
     </div>
     <div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:14px;padding:20px;overflow-y:auto;flex:1;">
       <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">교과목 해설</div>
@@ -596,20 +764,91 @@ function openCourseModal(idx){
     </div>`;
   document.getElementById('course-modal-ov').classList.add('show');
 }
+function closeCourseModal(){
+  document.getElementById('course-modal-ov').classList.remove('show');
+}
+
+/* 전체 교과목 목록 모달 */
+function openAllCoursesModal(){
+  const courses = window._currentCourses || [];
+  const keyword = window._currentKeyword || '';
+  const deptName = window._currentDeptName || curDept || '';
+
+  allCoursesState = {
+    keyword,
+    deptName,
+    courses: [...courses]
+  };
+
+  document.getElementById('all-modal-title').textContent = `📚 ${keyword} 관련 전체 교과목`;
+  document.getElementById('all-modal-sub').textContent = `${deptName} · 총 ${courses.length}개 교과목`;
+  document.getElementById('all-courses-search').value = '';
+  renderAllCoursesList(courses, '');
+  document.getElementById('all-courses-modal-ov').classList.add('show');
+
+  setTimeout(()=>{
+    document.getElementById('all-courses-search').focus();
+  }, 80);
+}
+function closeAllCoursesModal(){
+  document.getElementById('all-courses-modal-ov').classList.remove('show');
+}
+function setupAllCoursesSearch(){
+  const input=document.getElementById('all-courses-search');
+  input.addEventListener('input', e=>{
+    const q=e.target.value.trim();
+    renderAllCoursesList(allCoursesState.courses || [], q);
+  });
+}
+function renderAllCoursesList(courses, query){
+  const listEl=document.getElementById('all-courses-list');
+  const filtered = !query
+    ? courses
+    : courses.filter(c=>{
+        const name=String(c.n||'').toLowerCase();
+        const desc=String(c.d||c.p||'').toLowerCase();
+        const q=query.toLowerCase();
+        return name.includes(q) || desc.includes(q);
+      });
+
+  document.getElementById('all-modal-sub').textContent =
+    `${allCoursesState.deptName} · 총 ${courses.length}개 교과목${query ? ` · 검색 결과 ${filtered.length}개` : ''}`;
+
+  if(!filtered.length){
+    listEl.innerHTML = `<div class="all-empty">검색 결과가 없습니다</div>`;
+    return;
+  }
+
+  listEl.innerHTML = filtered.map((c,idx)=>`
+    <div class="all-course-card" onclick="openCourseModalFromAll('${escapeJsString(c.n)}')">
+      <div class="all-course-name">📘 ${highlightText(c.n, query)}</div>
+      <div class="all-course-desc">${highlightText(truncateText(c.d||c.p, 160), query)}</div>
+    </div>
+  `).join('');
+}
+function openCourseModalFromAll(courseName){
+  const courses = allCoursesState.courses || [];
+  const idx = courses.findIndex(c => String(c.n) === String(courseName));
+  if(idx === -1) return;
+  window._currentCourses = courses;
+  openCourseModal(idx);
+}
+
+/* 키워드 순위 */
 function renderRank(d){
   const el=document.getElementById('rank-view');
-  const items=Object.entries(d.t);
+  const items=Object.entries(d.t||{});
   const max=items[0]?.[1]||1;
   el.innerHTML=`
     <p style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">
-      TF-IDF 핵심 키워드 순위 — ${curDept}
+      TF-IDF 핵심 키워드 순위 — ${escapeHtml(curDept)}
     </p>
     ${items.map(([w,s],i)=>{
       const pct=(s/max*100).toFixed(1);
       const c=COLORS[i%COLORS.length];
       return `<div class="rank-item" onclick="switchTab('cloud');setTimeout(()=>showCourses('${escapeJsString(w)}',DEPT_KEYWORDS['${escapeJsString(curDept)}']),350)">
         <span class="r-num">${i+1}</span>
-        <span class="r-word" style="color:${c}">${w}</span>
+        <span class="r-word" style="color:${c}">${escapeHtml(w)}</span>
         <div class="r-bar-w"><div class="r-bar" style="width:0%;background:${c}" data-p="${pct}"></div></div>
         <span class="r-score">${s.toFixed(3)}</span>
       </div>`;
@@ -620,25 +859,6 @@ function renderRank(d){
 /* =========================
    추천 로직 개선 파트
 ========================= */
-
-// 문자열 정규화
-function normalizeKeyword(str){
-  return String(str||'')
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g,'');
-}
-
-// JS 문자열 이스케이프
-function escapeJsString(str){
-  return String(str).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-}
-function truncateText(text,maxLen){
-  const t=String(text||'');
-  return t.length>maxLen ? t.slice(0,maxLen)+'…' : t;
-}
-
-// 데이터 전체의 키워드 document frequency 계산
 function getKeywordDocumentFrequency(){
   const dfMap={};
   for(const data of Object.values(DEPT_KEYWORDS)){
@@ -656,13 +876,10 @@ function getKeywordDocumentFrequency(){
 const KEYWORD_DF_MAP=getKeywordDocumentFrequency();
 const TOTAL_DEPT_COUNT=Object.keys(DEPT_KEYWORDS).length;
 
-// 간단 IDF
 function getIdfWeight(normalizedKw){
   const df=KEYWORD_DF_MAP[normalizedKw]||0;
   return Math.log((TOTAL_DEPT_COUNT+1)/(df+1))+1;
 }
-
-// 사용자 입력 키워드가 실제 데이터 키워드 중 무엇과 매칭되는지 찾기
 function findMatchedDatasetKeywords(inputKw){
   const normalizedInput=normalizeKeyword(inputKw);
   if(!normalizedInput)return [];
@@ -680,7 +897,6 @@ function findMatchedDatasetKeywords(inputKw){
 
   for(const kw of allDatasetKeywords){
     const nk=normalizeKeyword(kw);
-
     if(nk===normalizedInput){
       exactMatches.push(kw);
       continue;
@@ -694,16 +910,12 @@ function findMatchedDatasetKeywords(inputKw){
     }
   }
 
-  const unique=[...new Set([
+  return [...new Set([
     ...exactMatches,
     ...containsMatches.slice(0,5),
     ...reverseContainsMatches.slice(0,3)
   ])];
-
-  return unique;
 }
-
-// 사용자 벡터 생성
 function buildUserVector(userKeywords){
   const vec={};
   const matchedMap={};
@@ -723,8 +935,6 @@ function buildUserVector(userKeywords){
     }
 
     matchedMap[rawKw]=matchedKeywords;
-
-    // exact 매치가 있으면 exact 위주, 아니면 부분매치 분산
     const exact=matchedKeywords.filter(k=>normalizeKeyword(k)===inputKw);
     const baseTargets=exact.length ? exact : matchedKeywords;
     const perWeight=1 / baseTargets.length;
@@ -734,20 +944,14 @@ function buildUserVector(userKeywords){
       vec[targetKw]=(vec[targetKw]||0)+(perWeight*idf);
     }
   }
-
   return { vec, matchedMap, unmatched };
 }
-
-// sparse 벡터 코사인 유사도
 function cosineSimilarity(vecA,vecB){
   const keysA=Object.keys(vecA||{});
   const keysB=Object.keys(vecB||{});
   if(!keysA.length || !keysB.length)return 0;
 
-  let dot=0;
-  let magA=0;
-  let magB=0;
-
+  let dot=0,magA=0,magB=0;
   for(const k of keysA){
     const a=vecA[k]||0;
     const b=vecB[k]||0;
@@ -758,15 +962,11 @@ function cosineSimilarity(vecA,vecB){
     const b=vecB[k]||0;
     magB += b*b;
   }
-
   if(magA===0 || magB===0)return 0;
   return dot/(Math.sqrt(magA)*Math.sqrt(magB));
 }
-
-// 입력 키워드가 해당 학과에서 얼마나 반영되는지 커버리지 계산
 function getCoverageScore(userKeywords, deptData, matchedMap){
   if(!userKeywords.length)return 0;
-
   let covered=0;
   for(const rawKw of userKeywords){
     const matchedKeywords=matchedMap[rawKw]||[];
@@ -775,8 +975,6 @@ function getCoverageScore(userKeywords, deptData, matchedMap){
   }
   return covered / userKeywords.length;
 }
-
-// 추천용 상세 설명
 function buildRecommendationExplain(result){
   const matchedInputs=result.coveredInputs || [];
   const unmatchedInputs=result.unmatchedInputs || [];
@@ -784,7 +982,6 @@ function buildRecommendationExplain(result){
   const missText=unmatchedInputs.length ? `<br>미반영 키워드: ${unmatchedInputs.join(', ')}` : '';
   return `${matchText}${missText}<br>유사도 ${result.cosinePct}% · 키워드 반영률 ${result.coveragePct}%`;
 }
-
 function runRecommend(){
   const raw=document.getElementById('kw-input').value.trim();
   if(raw){
@@ -798,7 +995,6 @@ function runRecommend(){
   }
 
   const { vec:userVec, matchedMap, unmatched } = buildUserVector(keywords);
-
   const userVecKeys=Object.keys(userVec);
   if(!userVecKeys.length){
     alert('입력한 키워드와 연결되는 데이터가 없습니다. 다른 키워드를 넣어보세요.');
@@ -816,18 +1012,13 @@ function runRecommend(){
     });
 
     return {
-      name,
-      data,
-      cosine,
-      coverage,
-      finalScore,
+      name,data,cosine,coverage,finalScore,
       coveredInputs,
       unmatchedInputs: unmatched
     };
   });
 
   scores.sort((a,b)=>b.finalScore-a.finalScore);
-
   const valid=scores.filter(s=>s.finalScore>0);
   const top=valid.slice(0,6);
 
@@ -842,11 +1033,9 @@ function runRecommend(){
   }
 
   const maxScore=top[0].finalScore || 1;
-
   labelEl.textContent=`"${keywords.join(', ')}" 관련 추천 학과 Top ${top.length}`;
 
   const badgeClass=['top1','top2','top3'];
-
   cardsEl.innerHTML=top.map((r,i)=>{
     const pct=(r.finalScore/maxScore*100).toFixed(0);
     const cosinePct=(r.cosine*100).toFixed(0);
@@ -856,14 +1045,14 @@ function runRecommend(){
 
     return `<div class="rec-card" onclick="goToSearch('${escapeJsString(r.name)}')">
       <div class="rec-rank-badge ${badgeClass[i]||''}">${i+1}</div>
-      <div class="rec-card-name">${r.name}</div>
+      <div class="rec-card-name">${escapeHtml(r.name)}</div>
       <div class="rec-card-score-wrap">
         <div class="rec-card-bar-w"><div class="rec-card-bar" style="width:0%" data-p="${pct}"></div></div>
         <span class="rec-card-pct">${pct}%</span>
       </div>
       <div class="rec-card-kws">
-        ${matchKws.map(k=>`<span class="rec-kw-match">✓ ${k}</span>`).join('')}
-        ${otherKws.map(k=>`<span class="rec-kw-other">${k}</span>`).join('')}
+        ${matchKws.map(k=>`<span class="rec-kw-match">✓ ${escapeHtml(k)}</span>`).join('')}
+        ${otherKws.map(k=>`<span class="rec-kw-other">${escapeHtml(k)}</span>`).join('')}
       </div>
       <div class="rec-card-cta">탭하면 워드클라우드로 이동 →</div>
       <div class="rec-explain">${buildRecommendationExplain({
@@ -879,7 +1068,6 @@ function runRecommend(){
   setTimeout(()=>cardsEl.querySelectorAll('.rec-card-bar').forEach(b=>b.style.width=b.dataset.p+'%'),60);
   resEl.scrollIntoView({behavior:'smooth'});
 }
-
 function goToSearch(name){
   goSearch();
   setTimeout(()=>{
@@ -924,7 +1112,7 @@ function removeKeyword(i){
 }
 function renderChips(){
   document.getElementById('kw-chips').innerHTML=keywords.map((k,i)=>
-    `<span class="kw-chip-item">${k}<button onclick="removeKeyword(${i})">×</button></span>`
+    `<span class="kw-chip-item">${escapeHtml(k)}<button onclick="removeKeyword(${i})">×</button></span>`
   ).join('');
 }
 
@@ -945,7 +1133,7 @@ function updateCmpBanner(){
     return;
   }
   b.classList.add('show');
-  tags.innerHTML=cmpList.map((n,i)=>`${i>0?'<span class="cmp-vs">vs</span>':''}<span class="cmp-tag">${n}</span>`).join('');
+  tags.innerHTML=cmpList.map((n,i)=>`${i>0?'<span class="cmp-vs">vs</span>':''}<span class="cmp-tag">${escapeHtml(n)}</span>`).join('');
 }
 function clearCompare(){
   cmpList=[];
@@ -968,27 +1156,28 @@ function openCompare(){
 
   document.getElementById('cmp-grid').innerHTML=`
     <div>
-      <div class="cmp-col-title" style="color:var(--accent)">${a}</div>
+      <div class="cmp-col-title" style="color:var(--accent)">${escapeHtml(a)}</div>
       <div class="sec-label">고유 키워드</div>
-      <div>${onlyA.slice(0,12).map(k=>`<span class="kw-chip kw-a">${k}</span>`).join('')}</div>
+      <div>${onlyA.slice(0,12).map(k=>`<span class="kw-chip kw-a">${escapeHtml(k)}</span>`).join('')}</div>
       <div class="sec-label" style="margin-top:14px">교과목 수</div>
       <div><span class="big-n" style="color:var(--accent)">${da.cnt}</span> <span class="big-u">과목</span></div>
     </div>
     <div>
-      <div class="cmp-col-title" style="color:var(--accent2)">${b}</div>
+      <div class="cmp-col-title" style="color:var(--accent2)">${escapeHtml(b)}</div>
       <div class="sec-label">고유 키워드</div>
-      <div>${onlyB.slice(0,12).map(k=>`<span class="kw-chip kw-b">${k}</span>`).join('')}</div>
+      <div>${onlyB.slice(0,12).map(k=>`<span class="kw-chip kw-b">${escapeHtml(k)}</span>`).join('')}</div>
       <div class="sec-label" style="margin-top:14px">교과목 수</div>
       <div><span class="big-n" style="color:var(--accent2)">${db.cnt}</span> <span class="big-u">과목</span></div>
     </div>`;
 
   document.getElementById('cmp-common').innerHTML=`
     <div class="sec-label" style="margin-top:18px">공통 키워드 (${common.length}개)</div>
-    <div>${common.slice(0,16).map(k=>`<span class="kw-chip kw-c">${k}</span>`).join('')}</div>`;
+    <div>${common.slice(0,16).map(k=>`<span class="kw-chip kw-c">${escapeHtml(k)}</span>`).join('')}</div>`;
 
   document.getElementById('modal-ov').classList.add('show');
 }
 
+/* 리사이즈 */
 window.addEventListener('resize',()=>{
   if(curDept && curTab==='cloud'){
     renderCloud(DEPT_KEYWORDS[curDept]);
