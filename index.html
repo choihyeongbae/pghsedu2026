@@ -477,11 +477,22 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
-<!-- 비교 배너 -->
-<div class="cmp-banner" id="cmp-banner">
-  <div id="cmp-tags"></div>
-  <button class="cmp-go" onclick="openCompare()">비교 분석 →</button>
-  <button class="cmp-x" onclick="clearCompare()">✕</button>
+<!-- 전체 교과목 목록 모달 -->
+<div class="modal-ov" id="all-courses-modal-ov" onclick="if(event.target===this)closeAllCoursesModal()">
+  <div class="modal" style="max-width:900px;padding:24px;display:flex;flex-direction:column;max-height:88vh;">
+    <div class="all-modal-top">
+      <div class="all-modal-title-box">
+        <div class="all-modal-title" id="all-modal-title">전체 교과목</div>
+        <div class="all-modal-sub" id="all-modal-sub">0개 교과목</div>
+      </div>
+    </div>
+    <div class="all-search-wrap">
+      <span class="all-search-icon">🔍</span>
+      <input type="text" id="all-courses-search" placeholder="교과목명 또는 해설 검색" autocomplete="off"/>
+    </div>
+    <div class="all-courses-list" id="all-courses-list"></div>
+    <button class="modal-close" onclick="closeAllCoursesModal()">닫기</button>
+  </div>
 </div>
 
 <!-- 비교 모달 -->
@@ -492,6 +503,13 @@ header h1 span{color:var(--muted);font-weight:400;}
     <div id="cmp-common"></div>
     <button class="modal-close" onclick="document.getElementById('modal-ov').classList.remove('show')">닫기</button>
   </div>
+</div>
+
+<!-- 비교 배너 -->
+<div class="cmp-banner" id="cmp-banner">
+  <div id="cmp-tags"></div>
+  <button class="cmp-go" onclick="openCompare()">비교 분석 →</button>
+  <button class="cmp-x" onclick="clearCompare()">✕</button>
 </div>
 
 <script>
