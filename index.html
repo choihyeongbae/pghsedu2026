@@ -499,6 +499,15 @@ const COLORS=['#3b73f5','#e8468a','#17a865','#e07d10','#7c3bf5','#0891b2','#b453
 let curDept=null,curTab='cloud',cmpList=[],keywords=[];
 let allCoursesState={keyword:'',deptName:'',courses:[]};
 
+function escHtml(s){
+  return String(s||'')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function escJs(s){
+  return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+}
+
 function init(){
   document.getElementById('hdr-cnt').textContent=`${DEPT_LIST_DATA.length}개 학과`;
   renderList(DEPT_LIST_DATA);
