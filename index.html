@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>학과 탐색기 — 대학알리미 교육과정 키워드 분석</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
@@ -30,8 +30,6 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
-
-/* ── 헤더 ── */
 header{
   position:relative;z-index:10;padding:14px 36px;
   border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;
@@ -51,8 +49,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 }
 .back-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-light);}
 .hdr-cnt{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);}
-
-/* ══ 랜딩 ══ */
 #screen-landing{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:calc(100vh - 57px);padding:40px 20px;
@@ -71,9 +67,7 @@ header h1 span{color:var(--muted);font-weight:400;}
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
 .landing-sub{font-size:15px;color:var(--muted);text-align:center;margin-bottom:52px;line-height:1.8;}
-
 .choice-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:680px;}
-
 .choice-card{
   background:#fff;border:2px solid var(--border);border-radius:20px;
   padding:36px 28px;cursor:pointer;transition:all .25s;text-align:center;
@@ -82,14 +76,12 @@ header h1 span{color:var(--muted);font-weight:400;}
 .choice-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(59,115,245,.14);}
 .choice-card.card-search:hover{border-color:var(--accent);}
 .choice-card.card-rec:hover{border-color:var(--accent2);}
-
 .card-icon{font-size:44px;margin-bottom:16px;display:block;}
 .card-title{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text);}
 .card-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
 .card-tag{display:inline-block;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;}
 .card-search .card-tag{background:var(--accent-light);color:var(--accent);}
 .card-rec .card-tag{background:var(--accent2-light);color:var(--accent2);}
-
 .landing-footer{margin-top:36px;font-size:11px;color:var(--dim);text-align:center;font-family:'DM Mono',monospace;}
 .notice-box{
   margin-top:28px;width:100%;max-width:720px;
@@ -115,11 +107,8 @@ header h1 span{color:var(--muted);font-weight:400;}
   font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;
   border-top:1px solid rgba(59,115,245,.15);padding-top:10px;margin-top:2px;
 }
-
-/* ══ 검색 화면 ══ */
 #screen-search{display:none;}
 .layout{display:grid;grid-template-columns:290px 1fr;height:calc(100vh - 57px);}
-
 .sidebar{
   border-right:1px solid var(--border);display:flex;flex-direction:column;
   background:#fff;overflow:hidden;
@@ -151,7 +140,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 .dept-item.cmp-sel{background:var(--accent2-light);color:var(--accent2);border-left-color:var(--accent2);}
 .d-cnt{margin-left:auto;font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
 .no-res{padding:24px 18px;text-align:center;color:var(--dim);font-size:13px;}
-
 .right{display:flex;flex-direction:column;overflow:hidden;background:var(--bg);}
 .info-bar{
   padding:12px 28px;border-bottom:1px solid var(--border);
@@ -166,7 +154,6 @@ header h1 span{color:var(--muted);font-weight:400;}
   font-family:'Noto Sans KR',sans-serif;font-size:12px;cursor:pointer;border-radius:8px;transition:all .15s;white-space:nowrap;
 }
 .tab-btn.active{background:var(--accent);color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(59,115,245,.3);}
-
 .main-view{flex:1;display:grid;grid-template-columns:1fr 360px;overflow:hidden;}
 .cloud-wrap{
   display:flex;align-items:center;justify-content:center;padding:16px;position:relative;overflow:hidden;
@@ -196,7 +183,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 .c-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4;}
 .c-desc{font-size:11px;color:var(--muted);line-height:1.7;}
 .no-courses{padding:28px 18px;text-align:center;color:var(--dim);font-size:12px;}
-
 .rank-view{flex:1;overflow-y:auto;padding:20px 32px;background:var(--bg);}
 .rank-view::-webkit-scrollbar{width:3px;}
 .rank-view::-webkit-scrollbar-thumb{background:var(--border2);}
@@ -210,13 +196,10 @@ header h1 span{color:var(--muted);font-weight:400;}
 .r-bar-w{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
 .r-bar{height:100%;border-radius:3px;transition:width .5s cubic-bezier(.4,0,.2,1);}
 .r-score{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);width:42px;text-align:right;}
-
 .search-landing{
   grid-column:1/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
 }
 .sl-icon{font-size:48px;opacity:.25;}
-
-/* ══ 추천 화면 ══ */
 #screen-rec{
   display:none;min-height:calc(100vh - 57px);padding:40px 48px;
   background:linear-gradient(160deg,#f0f4ff 0%,#fdf0f8 60%,#f4f6fb 100%);
@@ -224,7 +207,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 .rec-header{margin-bottom:28px;}
 .rec-title{font-size:24px;font-weight:800;margin-bottom:6px;color:var(--text);}
 .rec-sub{font-size:13px;color:var(--muted);}
-
 .rec-input-area{
   background:#fff;border:1.5px solid var(--border);border-radius:20px;
   padding:28px;margin-bottom:32px;box-shadow:0 4px 24px rgba(59,115,245,.07);
@@ -247,7 +229,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 }
 .rec-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,115,245,.45);}
 .rec-btn:active{transform:scale(.97);}
-
 .kw-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
 .kw-chip-item{
   background:var(--accent-light);border:1px solid rgba(59,115,245,.25);border-radius:20px;
@@ -255,7 +236,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 }
 .kw-chip-item button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:15px;padding:0;line-height:1;opacity:.6;}
 .kw-chip-item button:hover{opacity:1;}
-
 .rec-results{display:none;}
 .rec-results-label{
   font-size:13px;font-weight:600;color:var(--text);margin-bottom:16px;
@@ -263,14 +243,12 @@ header h1 span{color:var(--muted);font-weight:400;}
 }
 .rec-results-label::before{content:'✨';font-size:16px;}
 .rec-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
-
 .rec-card{
   background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:22px;
   cursor:pointer;transition:all .22s;animation:fadeUp .3s ease;
   box-shadow:0 2px 12px rgba(0,0,0,.06);
 }
 .rec-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 36px rgba(59,115,245,.15);}
-
 .rec-rank-badge{
   display:inline-block;width:28px;height:28px;border-radius:50%;
   background:var(--accent-light);color:var(--accent);font-weight:800;font-size:13px;
@@ -279,7 +257,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 .rec-rank-badge.top1{background:linear-gradient(135deg,#f5c518,#ff9800);color:#fff;}
 .rec-rank-badge.top2{background:linear-gradient(135deg,#b0bec5,#78909c);color:#fff;}
 .rec-rank-badge.top3{background:linear-gradient(135deg,#cd7f32,#a0522d);color:#fff;}
-
 .rec-card-name{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--text);}
 .rec-card-score-wrap{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
 .rec-card-bar-w{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
@@ -289,13 +266,14 @@ header h1 span{color:var(--muted);font-weight:400;}
 .rec-kw-match{background:var(--success-light);border:1px solid rgba(23,168,101,.2);border-radius:10px;padding:3px 9px;font-size:11px;color:var(--success);font-weight:600;}
 .rec-kw-other{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:3px 9px;font-size:11px;color:var(--dim);}
 .rec-card-cta{font-size:11px;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:4px;}
-
+.rec-explain{
+  margin-top:10px;font-size:11px;color:var(--muted);line-height:1.7;
+  background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;
+}
 .no-rec{
   grid-column:1/-1;text-align:center;padding:48px;color:var(--muted);font-size:14px;
   background:#fff;border-radius:16px;border:1.5px dashed var(--border);
 }
-
-/* ══ 비교 ══ */
 .cmp-banner{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
   background:#fff;border:2px solid var(--accent);border-radius:14px;padding:10px 18px;
@@ -311,7 +289,6 @@ header h1 span{color:var(--muted);font-weight:400;}
   box-shadow:0 3px 10px rgba(59,115,245,.3);
 }
 .cmp-x{color:var(--dim);font-size:15px;cursor:pointer;background:none;border:none;}
-
 .modal-ov{position:fixed;inset:0;background:rgba(30,40,80,.5);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
 .modal-ov.show{display:flex;}
 .modal{background:#fff;border:1.5px solid var(--border);border-radius:20px;width:90vw;max-width:860px;max-height:90vh;overflow-y:auto;padding:28px;box-shadow:0 24px 64px rgba(0,0,0,.15);}
@@ -330,7 +307,6 @@ header h1 span{color:var(--muted);font-weight:400;}
 .big-u{font-size:13px;color:var(--dim);}
 .modal-close{margin-top:20px;width:100%;padding:11px;background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;font-size:13px;cursor:pointer;transition:all .15s;}
 .modal-close:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light);}
-
 @media(max-width:700px){
   .choice-wrap{grid-template-columns:1fr;}
   .landing-title{font-size:30px;}
@@ -354,7 +330,6 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </header>
 
-<!-- ══ 랜딩 ══ -->
 <div id="screen-landing">
   <p class="landing-eyebrow">대학알리미 교육과정 데이터 기반</p>
   <h2 class="landing-title">내 미래 학과,<br><span class="hl">데이터로 탐색하기</span></h2>
@@ -385,7 +360,6 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
-<!-- ══ 검색 화면 ══ -->
 <div id="screen-search">
   <div class="layout">
     <aside class="sidebar">
@@ -422,7 +396,6 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
-<!-- ══ 추천 화면 ══ -->
 <div id="screen-rec">
   <div class="rec-header">
     <div class="rec-title">✨ 관심 키워드로 학과 추천받기</div>
@@ -445,7 +418,6 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
-<!-- 교과목 상세 모달 -->
 <div class="modal-ov" id="course-modal-ov" onclick="if(event.target===this)this.classList.remove('show')">
   <div class="modal" style="max-width:560px;max-height:80vh;display:flex;flex-direction:column;gap:0;">
     <div id="course-modal-body" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0;"></div>
@@ -453,14 +425,12 @@ header h1 span{color:var(--muted);font-weight:400;}
   </div>
 </div>
 
-<!-- 비교 배너 -->
 <div class="cmp-banner" id="cmp-banner">
   <div id="cmp-tags"></div>
   <button class="cmp-go" onclick="openCompare()">비교 분석 →</button>
   <button class="cmp-x" onclick="clearCompare()">✕</button>
 </div>
 
-<!-- 비교 모달 -->
 <div class="modal-ov" id="modal-ov" onclick="if(event.target===this)this.classList.remove('show')">
   <div class="modal">
     <div class="modal-title">⚖️ 학과 비교 분석</div>
@@ -474,21 +444,21 @@ header h1 span{color:var(--muted);font-weight:400;}
 const COLORS=['#3b73f5','#e8468a','#17a865','#e07d10','#7c3bf5','#0891b2','#b45309','#6366f1','#059669','#dc2626'];
 let curDept=null,curTab='cloud',cmpList=[],keywords=[];
 
+const DISPLAY_TYPE = {
+  'screen-landing': 'flex',
+  'screen-search': 'block',
+  'screen-rec': 'block'
+};
+
 function init(){
   document.getElementById('hdr-cnt').textContent=`${DEPT_LIST_DATA.length}개 학과`;
   renderList(DEPT_LIST_DATA);
   setupKwInput();
 }
 
-// 각 화면의 display 타입 명시
-const DISPLAY_TYPE = {
-  'screen-landing': 'flex',
-  'screen-search': 'block',
-  'screen-rec': 'block'
-};
 function showScreen(id){
   ['screen-landing','screen-search','screen-rec'].forEach(s=>{
-    document.getElementById(s).style.display = (s===id ? DISPLAY_TYPE[s] : 'none');
+    document.getElementById(s).style.display=(s===id?DISPLAY_TYPE[s]:'none');
   });
 }
 function goLanding(){
@@ -504,69 +474,80 @@ function goRec(){
   document.getElementById('back-btn').style.display='block';
   setTimeout(()=>document.getElementById('kw-input').focus(),100);
 }
-function show(id){document.getElementById(id).style.display='block';}
-function hide(id){document.getElementById(id).style.display='none';}
-
 function renderList(list){
   const el=document.getElementById('dept-list');
-  if(!list.length){el.innerHTML='<div class="no-res">검색 결과가 없습니다</div>';return;}
+  if(!list.length){
+    el.innerHTML='<div class="no-res">검색 결과가 없습니다</div>';
+    return;
+  }
   el.innerHTML=list.map(n=>{
     const d=DEPT_KEYWORDS[n];
     return `<div class="dept-item${n===curDept?' active':''}${cmpList.includes(n)?' cmp-sel':''}"
-      onclick="handleClick(event,'${n.replace(/'/g,"\\'")}')">
+      onclick="handleClick(event,'${escapeJsString(n)}')">
       <span style="flex:1">${n}</span>
       ${d?`<span class="d-cnt">${d.cnt}</span>`:''}
     </div>`;
   }).join('');
 }
-
 document.getElementById('s-input').addEventListener('input',e=>{
   const q=e.target.value.trim();
   renderList(q?DEPT_LIST_DATA.filter(n=>n.includes(q)):DEPT_LIST_DATA);
 });
-
-function handleClick(e,n){if(e.shiftKey){toggleCmp(n);return;}selectDept(n);}
-
+function handleClick(e,n){
+  if(e.shiftKey){toggleCmp(n);return;}
+  selectDept(n);
+}
 function selectDept(n){
-  curDept=n;const d=DEPT_KEYWORDS[n];if(!d)return;
+  curDept=n;
+  const d=DEPT_KEYWORDS[n];
+  if(!d)return;
   document.getElementById('info-bar').style.display='flex';
   document.getElementById('d-title').textContent=n;
-  const schoolStr = d.s && d.s.length ? d.s.join(' · ') : '';
+  const schoolStr=d.s&&d.s.length?d.s.join(' · '):'';
   document.getElementById('d-meta').innerHTML=
     `핵심 키워드 ${Object.keys(d.t).length}개 · 교과목 ${d.cnt}개`
-    + (schoolStr ? `&nbsp;&nbsp;<span style="color:var(--accent);font-weight:600;">🏫 ${schoolStr}</span>` : '');
+    +(schoolStr?`&nbsp;&nbsp;<span style="color:var(--accent);font-weight:600;">🏫 ${schoolStr}</span>`:'');
   switchTab('cloud',d);
   const q=document.getElementById('s-input').value.trim();
   renderList(q?DEPT_LIST_DATA.filter(n=>n.includes(q)):DEPT_LIST_DATA);
 }
-
 function switchTab(tab,dData){
-  curTab=tab;const d=dData||(curDept?DEPT_KEYWORDS[curDept]:null);if(!d)return;
+  curTab=tab;
+  const d=dData||(curDept?DEPT_KEYWORDS[curDept]:null);
+  if(!d)return;
   document.getElementById('tb-cloud').classList.toggle('active',tab==='cloud');
   document.getElementById('tb-rank').classList.toggle('active',tab==='rank');
-  const mv=document.getElementById('main-view'),rv=document.getElementById('rank-view');
-  if(tab==='cloud'){mv.style.display='grid';rv.style.display='none';buildCloud(d);}
-  else{mv.style.display='none';rv.style.display='block';renderRank(d);}
+  const mv=document.getElementById('main-view');
+  const rv=document.getElementById('rank-view');
+  if(tab==='cloud'){
+    mv.style.display='grid';
+    rv.style.display='none';
+    buildCloud(d);
+  }else{
+    mv.style.display='none';
+    rv.style.display='block';
+    renderRank(d);
+  }
 }
-
 function buildCloud(d){
   document.getElementById('main-view').innerHTML=`
     <div class="cloud-wrap" id="cloud-wrap"><svg id="wc-svg"></svg><div class="cloud-hint">🖱 단어 클릭 → 관련 교과목</div></div>
     <div class="detail-panel" id="det-panel"><div style="padding:32px 20px;text-align:center;color:var(--dim);font-size:13px;line-height:2;">← 워드클라우드에서<br>단어를 클릭해 보세요</div></div>`;
   renderCloud(d);
 }
-
 function renderCloud(d){
-  const wrap=document.getElementById('cloud-wrap');if(!wrap)return;
-  const W=wrap.clientWidth-28,H=wrap.clientHeight-28;if(W<80||H<80)return;
-  const entries=Object.entries(d.t),maxV=entries[0]?.[1]||1;
+  const wrap=document.getElementById('cloud-wrap');
+  if(!wrap)return;
+  const W=wrap.clientWidth-28,H=wrap.clientHeight-28;
+  if(W<80||H<80)return;
+  const entries=Object.entries(d.t);
+  const maxV=entries[0]?.[1]||1;
   const words=entries.map(([text,score])=>({text,score,size:12+(score/maxV)*52}));
   d3.select('#wc-svg').selectAll('*').remove();
   d3.layout.cloud().size([W,H]).words(words).padding(6)
     .rotate(()=>Math.random()>.75?90:0).fontSize(w=>w.size)
-    .on('end',drawn=>drawWords(drawn,W,H,d)).start();
+    .on('end',drawWordsEnded=>drawWords(drawWordsEnded,W,H,d)).start();
 }
-
 function drawWords(words,W,H,deptData){
   const svg=d3.select('#wc-svg').attr('width',W).attr('height',H);
   const g=svg.append('g').attr('transform',`translate(${W/2},${H/2})`);
@@ -574,37 +555,36 @@ function drawWords(words,W,H,deptData){
     .style('font-family','"Noto Sans KR",sans-serif')
     .style('font-weight',d=>d.size>28?'700':'500')
     .style('fill',(d,i)=>COLORS[i%COLORS.length])
-    .style('cursor','pointer').style('opacity',0)
+    .style('cursor','pointer')
+    .style('opacity',0)
     .attr('text-anchor','middle')
     .attr('transform',d=>`translate(${d.x},${d.y})rotate(${d.rotate})`)
-    .attr('font-size',d=>d.size).text(d=>d.text)
+    .attr('font-size',d=>d.size)
+    .text(d=>d.text)
     .on('mouseover',function(){d3.select(this).style('opacity',.55);})
     .on('mouseout',function(){d3.select(this).style('opacity',1);})
     .on('click',(e,d)=>showCourses(d.text,deptData))
     .transition().duration(500).delay((d,i)=>i*25).style('opacity',1);
 }
-
 function showCourses(kw,deptData){
-  const panel=document.getElementById('det-panel');if(!panel)return;
+  const panel=document.getElementById('det-panel');
+  if(!panel)return;
   const courses=deptData.c?.[kw]||[];
-  // 교과목 데이터를 전역에 임시 저장 (모달에서 참조)
-  window._currentCourses = courses;
+  window._currentCourses=courses;
   panel.innerHTML=`
     <div class="det-hdr"><div class="det-kw">${kw}</div><div class="det-sub">${courses.length}개 교과목 매핑</div></div>
     ${courses.length
       ?courses.map((c,i)=>`<div class="course-card" style="cursor:pointer;" onclick="openCourseModal(${i})">
         <div class="c-name">📘 ${c.n}</div>
-        <div class="c-desc">${c.p||c.d}${(c.p||c.d).length>=58?'…':''}</div>
+        <div class="c-desc">${truncateText(c.p||c.d,58)}</div>
         <div style="margin-top:8px;font-size:10px;color:var(--accent);font-family:'DM Mono',monospace;">자세히 보기 →</div>
-       </div>`).join('')
+      </div>`).join('')
       :'<div class="no-courses">저장된 교과목 정보가 없습니다</div>'}`;
 }
-
 function openCourseModal(idx){
-  const c = window._currentCourses[idx];
-  if(!c) return;
-  // 줄바꿈 문자를 <br>로 변환
-  const fullDesc = c.d.replace(/\n/g,'<br>').replace(/\\n/g,'<br>');
+  const c=window._currentCourses[idx];
+  if(!c)return;
+  const fullDesc=String(c.d||'').replace(/\n/g,'<br>').replace(/\\n/g,'<br>');
   document.getElementById('course-modal-body').innerHTML=`
     <div style="margin-bottom:18px;flex-shrink:0;">
       <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">교과목</div>
@@ -616,58 +596,265 @@ function openCourseModal(idx){
     </div>`;
   document.getElementById('course-modal-ov').classList.add('show');
 }
-
 function renderRank(d){
   const el=document.getElementById('rank-view');
-  const items=Object.entries(d.t),max=items[0]?.[1]||1;
+  const items=Object.entries(d.t);
+  const max=items[0]?.[1]||1;
   el.innerHTML=`
     <p style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">
       TF-IDF 핵심 키워드 순위 — ${curDept}
     </p>
     ${items.map(([w,s],i)=>{
-      const pct=(s/max*100).toFixed(1),c=COLORS[i%COLORS.length];
-      return `<div class="rank-item" onclick="switchTab('cloud');setTimeout(()=>showCourses('${w.replace(/'/g,"\\'")}',DEPT_KEYWORDS['${curDept.replace(/'/g,"\\'")}'"]),350)">
-        <span class="r-num">${i+1}</span><span class="r-word" style="color:${c}">${w}</span>
+      const pct=(s/max*100).toFixed(1);
+      const c=COLORS[i%COLORS.length];
+      return `<div class="rank-item" onclick="switchTab('cloud');setTimeout(()=>showCourses('${escapeJsString(w)}',DEPT_KEYWORDS['${escapeJsString(curDept)}']),350)">
+        <span class="r-num">${i+1}</span>
+        <span class="r-word" style="color:${c}">${w}</span>
         <div class="r-bar-w"><div class="r-bar" style="width:0%;background:${c}" data-p="${pct}"></div></div>
-        <span class="r-score">${s.toFixed(3)}</span></div>`;
+        <span class="r-score">${s.toFixed(3)}</span>
+      </div>`;
     }).join('')}`;
   setTimeout(()=>el.querySelectorAll('.r-bar').forEach(b=>b.style.width=b.dataset.p+'%'),60);
 }
 
-// ══ 코사인 유사도 추천 ══
+/* =========================
+   추천 로직 개선 파트
+========================= */
+
+// 문자열 정규화
+function normalizeKeyword(str){
+  return String(str||'')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g,'');
+}
+
+// JS 문자열 이스케이프
+function escapeJsString(str){
+  return String(str).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+}
+function truncateText(text,maxLen){
+  const t=String(text||'');
+  return t.length>maxLen ? t.slice(0,maxLen)+'…' : t;
+}
+
+// 데이터 전체의 키워드 document frequency 계산
+function getKeywordDocumentFrequency(){
+  const dfMap={};
+  for(const data of Object.values(DEPT_KEYWORDS)){
+    const seen=new Set();
+    for(const kw of Object.keys(data.t||{})){
+      const nk=normalizeKeyword(kw);
+      if(!seen.has(nk)){
+        dfMap[nk]=(dfMap[nk]||0)+1;
+        seen.add(nk);
+      }
+    }
+  }
+  return dfMap;
+}
+const KEYWORD_DF_MAP=getKeywordDocumentFrequency();
+const TOTAL_DEPT_COUNT=Object.keys(DEPT_KEYWORDS).length;
+
+// 간단 IDF
+function getIdfWeight(normalizedKw){
+  const df=KEYWORD_DF_MAP[normalizedKw]||0;
+  return Math.log((TOTAL_DEPT_COUNT+1)/(df+1))+1;
+}
+
+// 사용자 입력 키워드가 실제 데이터 키워드 중 무엇과 매칭되는지 찾기
+function findMatchedDatasetKeywords(inputKw){
+  const normalizedInput=normalizeKeyword(inputKw);
+  if(!normalizedInput)return [];
+
+  const allDatasetKeywords=new Set();
+  for(const data of Object.values(DEPT_KEYWORDS)){
+    for(const kw of Object.keys(data.t||{})){
+      allDatasetKeywords.add(kw);
+    }
+  }
+
+  const exactMatches=[];
+  const containsMatches=[];
+  const reverseContainsMatches=[];
+
+  for(const kw of allDatasetKeywords){
+    const nk=normalizeKeyword(kw);
+
+    if(nk===normalizedInput){
+      exactMatches.push(kw);
+      continue;
+    }
+    if(nk.includes(normalizedInput)){
+      containsMatches.push(kw);
+      continue;
+    }
+    if(normalizedInput.includes(nk) && nk.length >= 2){
+      reverseContainsMatches.push(kw);
+    }
+  }
+
+  const unique=[...new Set([
+    ...exactMatches,
+    ...containsMatches.slice(0,5),
+    ...reverseContainsMatches.slice(0,3)
+  ])];
+
+  return unique;
+}
+
+// 사용자 벡터 생성
+function buildUserVector(userKeywords){
+  const vec={};
+  const matchedMap={};
+  const unmatched=[];
+
+  for(const rawKw of userKeywords){
+    const inputKw=normalizeKeyword(rawKw);
+    if(!inputKw)continue;
+
+    const matchedKeywords=findMatchedDatasetKeywords(rawKw);
+
+    if(!matchedKeywords.length){
+      unmatched.push(rawKw);
+      vec[`__user__${inputKw}`]=1.0;
+      matchedMap[rawKw]=[];
+      continue;
+    }
+
+    matchedMap[rawKw]=matchedKeywords;
+
+    // exact 매치가 있으면 exact 위주, 아니면 부분매치 분산
+    const exact=matchedKeywords.filter(k=>normalizeKeyword(k)===inputKw);
+    const baseTargets=exact.length ? exact : matchedKeywords;
+    const perWeight=1 / baseTargets.length;
+
+    for(const targetKw of baseTargets){
+      const idf=getIdfWeight(normalizeKeyword(targetKw));
+      vec[targetKw]=(vec[targetKw]||0)+(perWeight*idf);
+    }
+  }
+
+  return { vec, matchedMap, unmatched };
+}
+
+// sparse 벡터 코사인 유사도
 function cosineSimilarity(vecA,vecB){
-  let dot=0,magA=0,magB=0;
-  for(const k of Object.keys(vecA)){if(vecB[k])dot+=vecA[k]*vecB[k];magA+=vecA[k]**2;}
-  for(const v of Object.values(vecB))magB+=v**2;
-  if(magA===0||magB===0)return 0;
+  const keysA=Object.keys(vecA||{});
+  const keysB=Object.keys(vecB||{});
+  if(!keysA.length || !keysB.length)return 0;
+
+  let dot=0;
+  let magA=0;
+  let magB=0;
+
+  for(const k of keysA){
+    const a=vecA[k]||0;
+    const b=vecB[k]||0;
+    dot += a*b;
+    magA += a*a;
+  }
+  for(const k of keysB){
+    const b=vecB[k]||0;
+    magB += b*b;
+  }
+
+  if(magA===0 || magB===0)return 0;
   return dot/(Math.sqrt(magA)*Math.sqrt(magB));
 }
-function buildUserVector(kws){
-  const vec={};
-  for(const kw of kws){
-    for(const data of Object.values(DEPT_KEYWORDS)){if(data.t[kw])vec[kw]=(vec[kw]||0)+data.t[kw];}
-    if(!vec[kw])vec[kw]=0.1;
+
+// 입력 키워드가 해당 학과에서 얼마나 반영되는지 커버리지 계산
+function getCoverageScore(userKeywords, deptData, matchedMap){
+  if(!userKeywords.length)return 0;
+
+  let covered=0;
+  for(const rawKw of userKeywords){
+    const matchedKeywords=matchedMap[rawKw]||[];
+    const found=matchedKeywords.some(k=>deptData.t && deptData.t[k]);
+    if(found)covered+=1;
   }
-  return vec;
+  return covered / userKeywords.length;
 }
+
+// 추천용 상세 설명
+function buildRecommendationExplain(result){
+  const matchedInputs=result.coveredInputs || [];
+  const unmatchedInputs=result.unmatchedInputs || [];
+  const matchText=matchedInputs.length ? `입력 키워드 반영: ${matchedInputs.join(', ')}` : '직접 반영된 입력 키워드 없음';
+  const missText=unmatchedInputs.length ? `<br>미반영 키워드: ${unmatchedInputs.join(', ')}` : '';
+  return `${matchText}${missText}<br>유사도 ${result.cosinePct}% · 키워드 반영률 ${result.coveragePct}%`;
+}
+
 function runRecommend(){
   const raw=document.getElementById('kw-input').value.trim();
-  if(raw)addKeyword(raw);
-  if(!keywords.length){alert('키워드를 1개 이상 입력해주세요');return;}
-  const userVec=buildUserVector(keywords);
-  const scores=Object.entries(DEPT_KEYWORDS).map(([name,data])=>({name,sim:cosineSimilarity(userVec,data.t),data}));
-  scores.sort((a,b)=>b.sim-a.sim);
-  const top=scores.slice(0,6).filter(s=>s.sim>0);
-  const resEl=document.getElementById('rec-results'),cardsEl=document.getElementById('rec-cards'),labelEl=document.getElementById('rec-results-label');
-  if(!top.length){cardsEl.innerHTML='<div class="no-rec">관련 학과를 찾지 못했어요. 다른 키워드를 입력해보세요.</div>';resEl.style.display='block';return;}
-  const maxSim=top[0].sim;
+  if(raw){
+    addKeyword(raw);
+    document.getElementById('kw-input').value='';
+  }
+
+  if(!keywords.length){
+    alert('키워드를 1개 이상 입력해주세요');
+    return;
+  }
+
+  const { vec:userVec, matchedMap, unmatched } = buildUserVector(keywords);
+
+  const userVecKeys=Object.keys(userVec);
+  if(!userVecKeys.length){
+    alert('입력한 키워드와 연결되는 데이터가 없습니다. 다른 키워드를 넣어보세요.');
+    return;
+  }
+
+  const scores=Object.entries(DEPT_KEYWORDS).map(([name,data])=>{
+    const cosine=cosineSimilarity(userVec,data.t||{});
+    const coverage=getCoverageScore(keywords,data,matchedMap);
+    const finalScore=(cosine*0.85)+(coverage*0.15);
+
+    const coveredInputs=keywords.filter(rawKw=>{
+      const matchedKeywords=matchedMap[rawKw]||[];
+      return matchedKeywords.some(k=>data.t && data.t[k]);
+    });
+
+    return {
+      name,
+      data,
+      cosine,
+      coverage,
+      finalScore,
+      coveredInputs,
+      unmatchedInputs: unmatched
+    };
+  });
+
+  scores.sort((a,b)=>b.finalScore-a.finalScore);
+
+  const valid=scores.filter(s=>s.finalScore>0);
+  const top=valid.slice(0,6);
+
+  const resEl=document.getElementById('rec-results');
+  const cardsEl=document.getElementById('rec-cards');
+  const labelEl=document.getElementById('rec-results-label');
+
+  if(!top.length){
+    cardsEl.innerHTML='<div class="no-rec">관련 학과를 찾지 못했어요. 다른 키워드를 입력해보세요.</div>';
+    resEl.style.display='block';
+    return;
+  }
+
+  const maxScore=top[0].finalScore || 1;
+
   labelEl.textContent=`"${keywords.join(', ')}" 관련 추천 학과 Top ${top.length}`;
+
   const badgeClass=['top1','top2','top3'];
+
   cardsEl.innerHTML=top.map((r,i)=>{
-    const pct=(r.sim/maxSim*100).toFixed(0);
-    const matchKws=keywords.filter(k=>r.data.t[k]);
-    const otherKws=Object.keys(r.data.t).filter(k=>!keywords.includes(k)).slice(0,3);
-    return `<div class="rec-card" onclick="goToSearch('${r.name.replace(/'/g,"\\'")}')">
+    const pct=(r.finalScore/maxScore*100).toFixed(0);
+    const cosinePct=(r.cosine*100).toFixed(0);
+    const coveragePct=(r.coverage*100).toFixed(0);
+    const matchKws=r.coveredInputs.slice(0,4);
+    const otherKws=Object.keys(r.data.t||{}).filter(k=>!matchKws.includes(k)).slice(0,3);
+
+    return `<div class="rec-card" onclick="goToSearch('${escapeJsString(r.name)}')">
       <div class="rec-rank-badge ${badgeClass[i]||''}">${i+1}</div>
       <div class="rec-card-name">${r.name}</div>
       <div class="rec-card-score-wrap">
@@ -679,36 +866,69 @@ function runRecommend(){
         ${otherKws.map(k=>`<span class="rec-kw-other">${k}</span>`).join('')}
       </div>
       <div class="rec-card-cta">탭하면 워드클라우드로 이동 →</div>
+      <div class="rec-explain">${buildRecommendationExplain({
+        coveredInputs:r.coveredInputs,
+        unmatchedInputs:r.unmatchedInputs,
+        cosinePct,
+        coveragePct
+      })}</div>
     </div>`;
   }).join('');
+
   resEl.style.display='block';
   setTimeout(()=>cardsEl.querySelectorAll('.rec-card-bar').forEach(b=>b.style.width=b.dataset.p+'%'),60);
   resEl.scrollIntoView({behavior:'smooth'});
 }
+
 function goToSearch(name){
   goSearch();
   setTimeout(()=>{
     selectDept(name);
-    document.querySelectorAll('.dept-item').forEach(el=>{if(el.textContent.trim().startsWith(name))el.scrollIntoView({block:'center'});});
+    document.querySelectorAll('.dept-item').forEach(el=>{
+      if(el.textContent.trim().startsWith(name)){
+        el.scrollIntoView({block:'center'});
+      }
+    });
   },100);
 }
 
-// ══ 키워드 입력 ══
+/* 키워드 입력 */
 function setupKwInput(){
   const inp=document.getElementById('kw-input');
   inp.addEventListener('keydown',e=>{
-    if(e.key==='Enter'||e.key===','){e.preventDefault();const v=inp.value.trim().replace(/,$/,'');if(v)addKeyword(v);inp.value='';}
-    if(e.key==='Backspace'&&inp.value===''&&keywords.length){keywords.pop();renderChips();}
+    if(e.key==='Enter' || e.key===','){
+      e.preventDefault();
+      const v=inp.value.trim().replace(/,$/,'');
+      if(v)addKeyword(v);
+      inp.value='';
+    }
+    if(e.key==='Backspace' && inp.value==='' && keywords.length){
+      keywords.pop();
+      renderChips();
+    }
   });
 }
-function addKeyword(kw){const c=kw.trim().replace(/,/g,'');if(!c||keywords.includes(c))return;keywords.push(c);renderChips();}
-function removeKeyword(i){keywords.splice(i,1);renderChips();}
+function addKeyword(kw){
+  const cleaned=String(kw).split(',').map(v=>v.trim()).filter(Boolean);
+  for(const item of cleaned){
+    const normalized=normalizeKeyword(item);
+    const exists=keywords.some(k=>normalizeKeyword(k)===normalized);
+    if(!normalized || exists)continue;
+    keywords.push(item.trim());
+  }
+  renderChips();
+}
+function removeKeyword(i){
+  keywords.splice(i,1);
+  renderChips();
+}
 function renderChips(){
   document.getElementById('kw-chips').innerHTML=keywords.map((k,i)=>
-    `<span class="kw-chip-item">${k}<button onclick="removeKeyword(${i})">×</button></span>`).join('');
+    `<span class="kw-chip-item">${k}<button onclick="removeKeyword(${i})">×</button></span>`
+  ).join('');
 }
 
-// ══ 비교 ══
+/* 비교 */
 function toggleCmp(n){
   if(cmpList.includes(n))cmpList=cmpList.filter(x=>x!==n);
   else if(cmpList.length<2)cmpList.push(n);
@@ -718,17 +938,34 @@ function toggleCmp(n){
   renderList(q?DEPT_LIST_DATA.filter(n=>n.includes(q)):DEPT_LIST_DATA);
 }
 function updateCmpBanner(){
-  const b=document.getElementById('cmp-banner'),tags=document.getElementById('cmp-tags');
-  if(!cmpList.length){b.classList.remove('show');return;}
+  const b=document.getElementById('cmp-banner');
+  const tags=document.getElementById('cmp-tags');
+  if(!cmpList.length){
+    b.classList.remove('show');
+    return;
+  }
   b.classList.add('show');
   tags.innerHTML=cmpList.map((n,i)=>`${i>0?'<span class="cmp-vs">vs</span>':''}<span class="cmp-tag">${n}</span>`).join('');
 }
-function clearCompare(){cmpList=[];updateCmpBanner();const q=document.getElementById('s-input').value.trim();renderList(q?DEPT_LIST_DATA.filter(n=>n.includes(q)):DEPT_LIST_DATA);}
+function clearCompare(){
+  cmpList=[];
+  updateCmpBanner();
+  const q=document.getElementById('s-input').value.trim();
+  renderList(q?DEPT_LIST_DATA.filter(n=>n.includes(q)):DEPT_LIST_DATA);
+}
 function openCompare(){
-  if(cmpList.length<2){alert('Shift+클릭으로 2개 학과를 선택해주세요');return;}
-  const [a,b]=cmpList,da=DEPT_KEYWORDS[a],db=DEPT_KEYWORDS[b];
-  const kwA=new Set(Object.keys(da.t)),kwB=new Set(Object.keys(db.t));
-  const common=[...kwA].filter(k=>kwB.has(k)),onlyA=[...kwA].filter(k=>!kwB.has(k)),onlyB=[...kwB].filter(k=>!kwA.has(k));
+  if(cmpList.length<2){
+    alert('Shift+클릭으로 2개 학과를 선택해주세요');
+    return;
+  }
+  const [a,b]=cmpList;
+  const da=DEPT_KEYWORDS[a], db=DEPT_KEYWORDS[b];
+  const kwA=new Set(Object.keys(da.t||{}));
+  const kwB=new Set(Object.keys(db.t||{}));
+  const common=[...kwA].filter(k=>kwB.has(k));
+  const onlyA=[...kwA].filter(k=>!kwB.has(k));
+  const onlyB=[...kwB].filter(k=>!kwA.has(k));
+
   document.getElementById('cmp-grid').innerHTML=`
     <div>
       <div class="cmp-col-title" style="color:var(--accent)">${a}</div>
@@ -744,13 +981,20 @@ function openCompare(){
       <div class="sec-label" style="margin-top:14px">교과목 수</div>
       <div><span class="big-n" style="color:var(--accent2)">${db.cnt}</span> <span class="big-u">과목</span></div>
     </div>`;
+
   document.getElementById('cmp-common').innerHTML=`
     <div class="sec-label" style="margin-top:18px">공통 키워드 (${common.length}개)</div>
     <div>${common.slice(0,16).map(k=>`<span class="kw-chip kw-c">${k}</span>`).join('')}</div>`;
+
   document.getElementById('modal-ov').classList.add('show');
 }
 
-window.addEventListener('resize',()=>{if(curDept&&curTab==='cloud')renderCloud(DEPT_KEYWORDS[curDept]);});
+window.addEventListener('resize',()=>{
+  if(curDept && curTab==='cloud'){
+    renderCloud(DEPT_KEYWORDS[curDept]);
+  }
+});
+
 init();
 </script>
 </body>
