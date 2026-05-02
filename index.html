@@ -669,7 +669,10 @@ function showCourses(kw,deptData){
 function openCourseModal(idx){
   const c=window._currentCourses?.[idx];
   if(!c)return;
-  const desc=escHtml(String(c.d||c.p||'')).replace(/\n/g,'<br>').replace(/\\n/g,'<br>');
+  // 미리보기(c.p)가 아닌 all 배열에서 전체 해설(c.d) 조회
+  const deptData=DEPT_KEYWORDS[window._currentDeptName||curDept]||{};
+  const full=(deptData.all||[]).find(a=>a.n===c.n)||c;
+  const desc=escHtml(String(full.d||full.p||c.d||c.p||'')).replace(/\n/g,'<br>').replace(/\\n/g,'<br>');
   document.getElementById('course-modal-body').innerHTML=`
     <div style="margin-bottom:18px;flex-shrink:0;">
       <div style="font-size:10px;color:var(--dim);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">교과목</div>
